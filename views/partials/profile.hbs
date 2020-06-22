@@ -1,0 +1,85 @@
+<div class="profile">
+  <h5 class="posts"> Приветствуем {{name}}, здесь указаны все твои публикации.</h5>
+  <div class="posts"><a class="waves-effect waves-light btn" href="http://localhost:3000/news/addpost">Есть новость</a>
+  </div>
+
+  {{#each post}}
+
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{this.img}}">
+    </div>
+    <div class="card-content">
+      <span id="textDelete" class="card-title activator grey-text text-darken-4">{{this.title}}<i class="material-icons right">...</i> </span><p>Дата размещения: {{this.date}}</p>
+      <p><a href="#openModal{{this.title}}">Видео</a></p>
+    </div>
+    <div class="card-reveal">
+      <span  class="card-title grey-text text-darken-4">{{this.title}}<i class="material-icons right">Закрыть</i></span>
+      <p>{{this.comment}}</p>
+    </div>
+<div id="buttonProfile">
+<form method="GET" action="/news/{{this._id}}/edit">
+  <input type="hidden" name="_method" value="PATCH">
+      <button class="waves-effect waves-light btn"  type="submit">EDIT</button>
+    </form>
+    <form method="POST" action="/news/{{this._id}}" class="inline">
+      <input type="hidden" name="_method" value="DELETE">
+      <button class="waves-effect waves-light btn"  type="submit">DELETE</button>
+    </form>
+  </div>
+</div>
+  <div id="openModal{{this.title}}" class="modalDialog">
+      <div>
+        <a href="#close" title="Закрыть" onclick="stopVideo()" class="close">X</a>
+        <p>{{this.title}}</p>
+        <div class="windowAdd">
+          <div><div id="player"></div></div>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+
+<script>
+  // 2. This code loads the IFrame Player API code ahsynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '400',
+      width: '700',
+      videoId: 'M7lc1UVf-VE',
+      events: {
+        //'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  var done = false;
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+      setTimeout(stopVideo, 6000);
+      done = true;
+    }
+  }
+  function stopVideo() {
+    player.stopVideo();
+  }
+</script>

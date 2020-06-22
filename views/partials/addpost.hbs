@@ -1,0 +1,32 @@
+<div id="mainAddPost" class="row">
+  <form id="addPost" class="col s12" name="addPost" action="/news/addpost" method="POST">
+    <div>
+      <h5>Добавить свою новость</h5>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="icon_prefix" type="text" class="validate" name="title">
+        <label for="icon_prefix">Введите название новости</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="icon_prefix2" type="text" class="validate" name="img">
+        <label for="icon_prefix2">Ссылка на картинку</label>
+      </div>
+    </div>
+    <div class="row">
+      <div>Дата новости:<input type="date" name="date"></div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12"> <textarea id="textarea1" class="materialize-textarea"
+          name="addcomment"></textarea><label for="textarea1">Комментарии</label></div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="icon_prefix3" type="text" class="validate" name="video">
+          <label for="icon_prefix3">Ссылка на видео</label>
+        </div>
+      </div>
+      <button class="waves-effect waves-light btn" type="submit">Опубликовать</button>
+  </form>
+</div>

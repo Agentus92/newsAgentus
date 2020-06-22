@@ -1,0 +1,58 @@
+<div id="reg">
+  <div class="login">
+    <form id="register"  class="login" name="reg" action="/news/login/reg" method="POST">
+      <div>
+        <h4>Регистрация</h4>
+      </div>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="icon_prefix" type="text" class="validate" name="userName">
+              <label for="icon_prefix">Ваше Имя</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="icon_telephone" type="text" class="validate" name="email">
+              <label for="icon_telephone">Email</label>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate" name="password">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password2" type="password" class="validate" name="passwordTwo">
+          <label for="password2">Password</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Зарегистрироваться
+      </button>
+
+      {{#if err}} <p id="errEmail">такой e-mail уже существует</p> {{/if}}
+    </form>
+  </div>
+
+  <div class="login">
+  {{!-- <div id="login" class="col s6 offset-s3"> --}}
+    <form id="login" class="login" action="/news/login/log" method="POST">
+      <div>
+        <h4>Войти</h4>
+      </div>
+      <div class="input-field col s6">
+        <input id="Email" type="text" class="validate" name="email">
+        <label for="Email">Email</label>
+      </div>
+      <div class="input-field col s4">
+        <input id="password3" type="password" class="validate" name="password">
+        <label for="password3">Password</label>
+      </div>
+      <div><button class="btn waves-effect waves-light" type="submit" name="action">Войти
+        </button></div>
+      <div>{{#if errLogin}} <p id="errLogin">Неверный пароль, или пользователь не зарегистрирован</p> {{/if}}</div>
+    </form>
+  </div>
+</div>

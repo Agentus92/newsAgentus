@@ -1,0 +1,34 @@
+<div id="mainAddPost">
+  <form id="addPost" name="addPost" action="/news/{{post._id}}/edit" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+
+    <div>Изменить Новость </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="icon_prefix" type="text" class="validate" name="title" value="{{post.title}}">
+        <label for="icon_prefix">Введите название новости</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="icon_prefix2" type="text" class="validate" name="img" value="{{post.img}}">
+        <label for="icon_prefix2">Ссылка на картинку</label>
+      </div>
+    </div>
+    <div class="row">
+      <div>Дата новости:<input type="date" name="date"></div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12"> <input id="icon_prefix4" value="{{post.comment}}"
+          class="validate" type="text" name="addcomment"><label for="icon_prefix4">Комментарии</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="icon_prefix3" type="text" class="validate" name="video" value="{{post.video}}">
+        <label for="icon_prefix3">Ссылка на видео</label>
+      </div>
+    </div>
+    <button class="waves-effect waves-light btn" type="submit">Изменить новость</button>
+  </form>
+</div>

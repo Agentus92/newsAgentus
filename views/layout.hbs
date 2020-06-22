@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <title>newsAgentus</title>
+</head>
+
+<body>
+  <div id="nav" class="nav-wrapper">
+    <span><a class="waves-effect waves-light btn" href="http://localhost:3000/news">Главная</a></span>
+    {{#if temp}}
+    <span><a class="waves-effect waves-light btn"
+        href="http://localhost:3000/news/{{id}}/profile">{{name}}</a></span><span id="addbutton"><a
+        class="waves-effect waves-light btn" href="http://localhost:3000/news/logout">Logout</a></span>
+    {{else}}
+    <span><a class="waves-effect waves-light btn" href="http://localhost:3000/news/login">Login/Registration</a></span>
+    {{/if}}
+  </div>
+  {{{body}}}
+
+</body>
+
+</html>
